@@ -1,0 +1,56 @@
+<div
+  style="min-height: 100vh"
+  class="d-flex justify-content-center align-items-center w-100"
+>
+  <div class=".w-80 border-rounded p-5 card shadow">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <img
+          src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-232.jpg?size=626&ext=jpg&ga=GA1.1.1430751802.1698048199&semt=ais"
+          alt="login"
+        width="100%"/>
+      </div>
+
+      <div class="col-lg-6">
+
+        <!-- <pre>{{email}}  {{password}}</pre> -->
+        <h2>Login Form</h2>
+       
+        <form #loginForm="ngForm" (ngSubmit)="login()" >
+
+          <!-- invalid email -->
+
+          
+        
+          <div class="mb-3">
+            <input  type="text" class="form-control" placeholder="Username" username required
+            name="username" [(ngModel)]="username" #userusernameInput="ngModel"/>
+          </div>
+
+
+         
+
+          <div class="mb-3">
+            <input 
+              type="password"
+              class="form-control"
+              placeholder="Password" pattern="[a-zA-Z0-9]*" minlength="3" required
+              name="password" [(ngModel)]="password" #userPwdInput="ngModel"
+            />
+          </div>
+
+          <div class="mb-3">
+            <input
+              
+              type="submit"
+              class="btn btn-success "
+              value="Login" [disabled]="loginForm.invalid && loginForm.touched"
+            />
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

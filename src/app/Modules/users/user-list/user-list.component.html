@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="height: 90vh; width: fit-content;" class="col-lg-2 bg-dark d-flex flex-column  p-3">
+    <a  style="text-decoration: none; color: white;" class="fw-bolder mb-3" routerLink="/users">EMPLOYEES</a>
+    </div>
+
+    <div class="col-lg-11 p-3 ">
+
+      <div class="d-flex justify-content-between ">
+        <h1>ALL USERS LIST</h1>
+        <a class="btn btn-dark  " (click)="openDialog()">
+          <i class="fa-solid fa-user-plus">ADD EMPLOYEE</i>
+        </a>
+
+      </div>
+
+     
+
+      <table class="table shadow mt-5 ms-3">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of allUsers  paginate: {itemsPerPage:5, currentPage:page} ; let i = index" [hidden]="!user.empId">
+            <td>{{i+1}}</td>
+            <td>{{user.empId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.contact}}</td>
+            <td>{{user.address}}</td>
+            
+          </tr>
+
+          <tr *ngIf="(allUsers).length==0">
+          <p class="text-danger fw-bolder">User not found</p>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center mt-3">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+      
+    </div>
+  </div>
+</div>

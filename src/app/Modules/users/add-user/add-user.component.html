@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+   
+    <div class="col-lg-11">
+
+      <div class="d-flex align-items-center justify-content-center flex-column" style="height: 92vh;">
+        <h2>Add User form</h2>
+
+        <form class="border rounded p-3 w-75 mt-5" #addUserForm = "ngForm" (ngSubmit)="addUser()">
+
+          <div class="mb-2 text-danger fw-bolder" *ngIf="empId.invalid && empId.touched" >Invalid Employee Id</div>
+
+          <div class="form-floating mb-3">
+            <input name="empId" [(ngModel)]="user.empId" type="text" class="form-control" id="floatingInputId" placeholder="Id" pattern="[a-zA-Z0-9]*" required #empId="ngModel">
+            <label for="floatingInputId">Id</label>
+          </div>
+
+          <div class="mb-2 text-danger fw-bolder" *ngIf="empName.invalid && empName.touched" >Invalid Employee Name</div>
+
+
+          <div class="form-floating mb-3">
+            <input name="name" [(ngModel)]="user.name" type="text" class="form-control" id="floatingInputname" placeholder="Username" required #empName="ngModel">
+            <label for="floatingInputname">Username</label>
+          </div>
+
+
+          <div class="mb-2 text-danger fw-bolder" *ngIf="empEmail.invalid && empEmail.touched" >Invalid Employee Email</div>
+
+
+          <div class="form-floating mb-3">
+            <input name="email" [(ngModel)]="user.email" type="email" class="form-control" id="floatingInputemail" placeholder="Enter Your Email" required #empEmail="ngModel">
+            <label for="floatingInputemail">Email</label>
+          </div>
+
+
+
+          <div class="form-floating mb-3">
+            <input name="email" [(ngModel)]="user.contact" type="number" class="form-control" id="floatingInputcontact" placeholder="Enter Your Email" required #empEmail="ngModel">
+            <label for="floatingInputemail">Contact</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input name="email" [(ngModel)]="user.address" type="text" class="form-control" id="floatingInputaddress" placeholder="Enter Your Email" required #empEmail="ngModel">
+            <label for="floatingInputemail">Address</label>
+          </div>
+
+
+
+          <div class="text-center">
+            <button (click)="cancel()" type="button" class="btn btn-warning text-light">Cancel</button>
+            &nbsp;
+            <button type="submit" [disabled]="addUserForm.invalid" type="submit" class="btn btn-success text-light">Add</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+<!-- <pre>{{user.empId}}{{user.name}}{{user.email}}</pre> -->
+</div>
